@@ -12,16 +12,25 @@ export default function MainLayout() {
 
   return (
     <>
-      <div>
-        <header>
+      <div className="flex flex-col h-screen">
+        {/* Header (fixed height) */}
+        <header className="bg-white shadow-md">
           <NavBarMainLayout />
         </header>
-        <aside>
-          <SideBar />
-        </aside>
-        <main>
-          <Outlet />
-        </main>
+
+        {/* Body (fills remaining height) */}
+        <div className="flex flex-1 overflow-hidden">
+          {/* Sidebar */}
+          <aside className="hidden md:block w-65 overflow-y-auto">
+            <SideBar />
+          </aside>
+
+          {/* Main Content */}
+          <main className="flex-1 bg-red-500 overflow-y-auto">
+            haha
+            <Outlet />
+          </main>
+        </div>
       </div>
     </>
   );

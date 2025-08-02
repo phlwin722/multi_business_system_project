@@ -6,7 +6,12 @@ import NotFoundLayout from "../pages/NotFoundLayout.jsx";
 import MainLayout from "../layout/MainLayout.jsx";
 import GuestLayout from "../layout/GuestLayout.jsx";
 import Dashboard from "../pages/MainLayout/Dashboard.jsx";
-import { Navigate } from 'react-router-dom';
+import { Navigate } from "react-router-dom";
+import Sales from "../pages/MainLayout/Sales.jsx";
+import ListEmployee from "../pages/MainLayout/ListEmployee.jsx";
+import ArchiveEmployee from "../pages/MainLayout/ArchiveEmployee.jsx";
+import ListBusiness from "../pages/MainLayout/ListBusiness.jsx";
+import ArchiveBusiness from "../pages/MainLayout/ArchiveBusiness.jsx";
 
 const router = createBrowserRouter([
   {
@@ -14,14 +19,34 @@ const router = createBrowserRouter([
     element: <MainLayout />,
     children: [
       {
-        path: '/',
-        element: <Navigate to="/dashboard" />
+        path: "/",
+        element: <Navigate to="/dashboard" />,
       },
       {
-        path: '/dashboard',
+        path: "/dashboard",
         element: <Dashboard />,
-      }
-    ]
+      },
+      {
+        path : "/businesses/list",
+        element: <ListBusiness />
+      },
+      {
+        path: "/businesses/archive",
+        element: <ArchiveBusiness />
+      },
+      {
+        path: "/employee/list",
+        element: <ListEmployee />
+      },
+      {
+        path: "/employee/archive",
+        element: <ArchiveEmployee />
+      },
+      {
+        path: "/reports/sales",
+        element: <Sales />,
+      },
+    ],
   },
   {
     path: "/",

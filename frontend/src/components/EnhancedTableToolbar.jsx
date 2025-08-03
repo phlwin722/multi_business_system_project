@@ -3,8 +3,9 @@ import PropTypes from "prop-types";
 import { alpha } from "@mui/material/styles";
 import { Toolbar, Typography, IconButton, Tooltip } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
+import RestoreFromTrashIcon from '@mui/icons-material/RestoreFromTrash';
 
-export default function EnhancedTableToolbar({ numSelected }) {
+export default function EnhancedTableToolbar({ numSelected, status }) {
   return (
     <>
       {numSelected > 0 && (
@@ -13,7 +14,10 @@ export default function EnhancedTableToolbar({ numSelected }) {
             { pl: { sm: 2 }, pr: { xs: 1, sm: 1 } },
             numSelected > 0 && {
               bgcolor: (theme) =>
-                alpha(theme.palette.primary.main, theme.palette.action.activatedOpacity),
+                alpha(
+                  theme.palette.primary.main,
+                  theme.palette.action.activatedOpacity
+                ),
             },
           ]}
         >
@@ -26,11 +30,23 @@ export default function EnhancedTableToolbar({ numSelected }) {
             {numSelected} selected
           </Typography>
 
-          <Tooltip title="Delete">
-            <IconButton>
-              <DeleteIcon />
-            </IconButton>
-          </Tooltip>
+          {status ? (
+            <>
+              <Tooltip title="Restore">
+                <IconButton>
+                  <RestoreFromTrashIcon />
+                </IconButton>
+              </Tooltip>
+            </>
+          ) : (
+            <>
+              <Tooltip title="Delete">
+                <IconButton>
+                  <DeleteIcon />
+                </IconButton>
+              </Tooltip>
+            </>
+          )}
         </Toolbar>
       )}
     </>

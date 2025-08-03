@@ -1,24 +1,25 @@
-import * as React from "react";
-import {
-  Box,
-  Paper,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TablePagination,
-  TableRow,
-  Checkbox,
-} from "@mui/material";
+import React from "react";
 import BreadCrumps from "../../components/BreadCrumps";
-import EnhancedTableHead from "../../components/EnhancedTableHead";
-import EnhancedTableToolbar from "../../components/EnhancedTableToolbar";
 import Button from "@mui/material/Button";
 import AddIcon from "@mui/icons-material/Add";
 import Stack from "@mui/material/Stack";
-import AddBusinesses from "./AddBusinesses";
+import EnhancedTableHead from "../../components/EnhancedTableHead";
+import EnhancedTableToolbar from "../../components/EnhancedTableToolbar";
+import AddProduct from "./AddProduct";
 
-const EnhancedTable =() => {
+import {
+    Box,
+    Paper,
+    Table,
+    TableBody,
+    TableCell,
+    TableContainer,
+    TablePagination,
+    TableRow,
+    Checkbox,
+  } from "@mui/material";
+
+const Product = () => {
   const [order, setOrder] = React.useState("asc");
   const [orderBy, setOrderBy] = React.useState("calories");
   const [selected, setSelected] = React.useState([]);
@@ -128,13 +129,14 @@ const EnhancedTable =() => {
   );
 
   return (
-    <>
-      <div className="w-full rounded-lg px-3 py-2 shadow-md">
-        <BreadCrumps breadNumber={2}/>
+    <div>
+      <div className="w-full shadow-md py-2 px-3 rounded-md">
+        <BreadCrumps breadNumber={6} />
       </div>
+
       {addPage ? (
         <div className="mt-3 w-full shadow-md p-3 rounded-lg">
-          <AddBusinesses />
+          <AddProduct />
         </div>
       ) : (
         <>
@@ -231,8 +233,8 @@ const EnhancedTable =() => {
           </Box>
         </>
       )}
-    </>
+    </div>
   );
-}
+};
 
-export default EnhancedTable
+export default Product;

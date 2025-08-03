@@ -12,6 +12,7 @@ import ListEmployee from "../pages/MainLayout/ListEmployee.jsx";
 import ArchiveEmployee from "../pages/MainLayout/ArchiveEmployee.jsx";
 import ListBusiness from "../pages/MainLayout/ListBusiness.jsx";
 import ArchiveBusiness from "../pages/MainLayout/ArchiveBusiness.jsx";
+import Product from "../pages/MainLayout/Product.jsx";
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
       {
         path: "/employee/archive",
         element: <ArchiveEmployee />
+      },
+      {
+        path: '/product',
+        element: <Product />
       },
       {
         path: "/reports/sales",

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->decimal('price',10,2)->default(0.00); // Assuming you want a default price of 0.00
             $table->string('quantity')->nullable(); // Assuming you want to allow null values for quantity
             $table->string('quantity_sold')->default(0); // Assuming you want to track quantity sold
+            $table->string('image');
             $table->foreignId('business_id')
                 ->nullable()
                 ->constrained('businesses')

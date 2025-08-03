@@ -1,10 +1,10 @@
+import React, { useState } from "react";
 import ButtonBase from "@mui/material/ButtonBase";
-import { useState } from "react";
 import uploadImage from "../../assets/uploadImage.jpg";
-import SaveIcon from "@mui/icons-material/Save";
 import Button from "@mui/material/Button";
+import SaveIcon from '@mui/icons-material/Save';
 
-const AddBusinesses = () => {
+const AddEmployee = () => {
   const [avatarSrc, setAvatarSrc] = useState();
 
   const handleAvatarChange = (event) => {
@@ -22,20 +22,45 @@ const AddBusinesses = () => {
 
   return (
     <div>
-      <form action="">
+      <form
+        action=""
+        className="w-full grid md:grid-cols-2 gap-4"
+      >
         <div>
-          <label htmlFor="business_name">Business Name</label>
-          <div>
-            <input
-              type="text"
-              id="business_name"
-              className="border p-2 rounded-md w-full md:w-60 "
-            />
-          </div>
+          <label htmlFor="first_name">First name</label>
+          <input
+            type="text"
+            id="first_name"
+            className="border p-2 rounded-md w-full md:w-60 block"
+          />
         </div>
-        <div className="mt-3">
+        <div>
+          <label htmlFor="last_name">Last name</label>
+          <input
+            type="text"
+            id="last_name"
+            className="border p-2 rounded-md w-full md:w-60  block"
+          />
+        </div>
+        <div>
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            className="border p-2 rounded-md w-full md:w-60  block"
+          />
+        </div>
+        <div>
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            className="border p-2 rounded-md w-full md:w-60 block"
+          />
+        </div>
+        <div className="md:col-span-2">
           <label htmlFor="input_image">Image Upload</label>
-          <div className="block border p-2 w-55">
+          <div className="block border  p-2 w-55">
             <ButtonBase
               component="label"
               role={undefined}
@@ -77,7 +102,7 @@ const AddBusinesses = () => {
         </div>
         <div className="mt-4">
           <Button variant="contained" startIcon={<SaveIcon />}>
-            Save
+            Send
           </Button>
         </div>
       </form>
@@ -85,4 +110,4 @@ const AddBusinesses = () => {
   );
 };
 
-export default AddBusinesses;
+export default AddEmployee;

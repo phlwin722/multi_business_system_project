@@ -3,16 +3,16 @@ import PropTypes from "prop-types";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import BarChartIcon from "@mui/icons-material/BarChart";
 import DescriptionIcon from "@mui/icons-material/Description";
-import LayersIcon from "@mui/icons-material/Layers";
 import { AppProvider } from "@toolpad/core/AppProvider";
 import { DashboardLayout } from "@toolpad/core/DashboardLayout";
 import { Outlet, useNavigate, useLocation } from "react-router-dom"
-import AddBusinessIcon from "@mui/icons-material/AddBusiness";
+import BusinessIcon from '@mui/icons-material/Business';
 import FormatListBulletedAddIcon from "@mui/icons-material/FormatListBulletedAdd";
 import NavbarMain from "../components/NavbarMain";
 import PersonIcon from '@mui/icons-material/Person';
 import ArchiveIcon from '@mui/icons-material/Archive';
 import GroupsIcon from '@mui/icons-material/Groups';
+import LocalMallIcon from '@mui/icons-material/LocalMall';
 
 const NAVIGATION = [
   {
@@ -28,7 +28,7 @@ const NAVIGATION = [
   {
     segment: "businesses", // ← add this
     title: "Business Management",
-    icon: <AddBusinessIcon />,
+    icon: <BusinessIcon />,
     children: [
       {
         segment: "list",
@@ -62,6 +62,12 @@ const NAVIGATION = [
         to: "/archive"
       }
     ]
+  },
+  {
+    segment: "product",
+    title: "Product",
+    icon: <LocalMallIcon />,
+    to: "/product"
   },
   {
     kind: "divider",

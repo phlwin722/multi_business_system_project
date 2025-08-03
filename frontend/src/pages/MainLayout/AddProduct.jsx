@@ -1,39 +1,58 @@
+import React from "react";
 import ButtonBase from "@mui/material/ButtonBase";
-import { useState } from "react";
 import uploadImage from "../../assets/uploadImage.jpg";
-import SaveIcon from "@mui/icons-material/Save";
 import Button from "@mui/material/Button";
+import SaveIcon from "@mui/icons-material/Save";
+import { useState } from "react";
 
-const AddBusinesses = () => {
-  const [avatarSrc, setAvatarSrc] = useState();
+const addProduct = () => {
+  const [avatarSrc, setAvatarSrc] = useState()
 
   const handleAvatarChange = (event) => {
-    const file = event.target.files?.[0];
+    const file = event.target.files?.[0]
 
     if (file) {
-      // read the file as a data url
+      // ead the file as a data url
       const reader = new FileReader();
       reader.onload = () => {
-        setAvatarSrc(reader.result);
-      };
+        setAvatarSrc(reader.result)
+      }
       reader.readAsDataURL(file);
     }
-  };
+  }
 
   return (
     <div>
-      <form action="">
+      <form action="" className="w-full grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="business_name">Business Name</label>
-          <div>
-            <input
-              type="text"
-              id="business_name"
-              className="border p-2 rounded-md w-full md:w-60 "
-            />
-          </div>
+          <label htmlFor="">Product Code</label>
+          <input
+            type="number"
+            className="border p-2 rounded-md w-full md:w-60 block"
+          />
         </div>
-        <div className="mt-3">
+        <div>
+          <label htmlFor="">Product Name</label>
+          <input
+            type="text"
+            className="border p-2 rounded-md w-full md:w-60 block"
+          />
+        </div>
+        <div>
+          <label htmlFor="">Price</label>
+          <input
+            type="number"
+            className="border p-2 rounded-md w-full md:w-60 block"
+          />
+        </div>
+        <div>
+          <label htmlFor="">Quantity</label>
+          <input
+            type="number"
+            className="border p-2 rounded-md w-full md:w-60 block"
+          />
+        </div>
+        <div className="md:col-span-2">
           <label htmlFor="input_image">Image Upload</label>
           <div className="block border p-2 w-55">
             <ButtonBase
@@ -75,9 +94,9 @@ const AddBusinesses = () => {
             </ButtonBase>
           </div>
         </div>
-        <div className="mt-4">
+        <div>
           <Button variant="contained" startIcon={<SaveIcon />}>
-            Save
+            Send
           </Button>
         </div>
       </form>
@@ -85,4 +104,4 @@ const AddBusinesses = () => {
   );
 };
 
-export default AddBusinesses;
+export default addProduct;
